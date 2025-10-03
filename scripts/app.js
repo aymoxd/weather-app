@@ -5,8 +5,7 @@ const tempirature = document.getElementById('tempirature');
 const Humidity = document.getElementById('Humidity');
 const windSpeed = document.getElementById('wind-speed');
 const message = document.getElementById('msg');
-
-
+const error = document.getElementById('error');
 
 
 
@@ -17,26 +16,31 @@ const url = 'https://api.openweathermap.org/data/2.5/weather?q=';
 async function checkWeather(cityName) {
     const response = await fetch(url + cityName + '&appid=' + apiKey + '&units=metric');
     const data = await response.json();
-
+    if(response.status == 404){
+        error.innerHTML = 'The city name you entered is not valid.';
+        msg();
+    } else{ 
     console.log(data);
     displyCity.innerHTML = data.name;
-    tempirature.innerHTML = Math.ceil(data.main.temp) + "°C";
+    tempirature.innerHTML = Math.round(data.main.temp) + "°C";
     windSpeed.innerHTML = Math.round(data.wind.speed) + 'Km';
     Humidity.innerHTML = Math.round(data.main.humidity) + '%';
+    }
 }
 
 function msg(){
-     message.classList.remove('');
-       message.classList.add('bottom-5');
+     message.classList.remove('pointer-events-none','opacity-0');
+       message.classList.add('opacity-100');
     setTimeout(()=>{
-        message.classList.add('-bottom-10');
-    },1000);
+        message.classList.remove('opacity-100');
+        message.classList.add('opacity-0','pointer-events-none');
+    },2500);
 }
 
 
 btn.addEventListener('click',()=>{
         if(city.value == ''){
-         alert('fill the input to search for weather!!')
+               msg();
         }else{
             checkWeather(city.value);
         }
