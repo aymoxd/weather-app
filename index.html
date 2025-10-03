@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <script src="https://cdn.tailwindcss.com"></script>
+    <title>Weather App</title>
+</head>
+<body class="bg-gray-950 overflow-hidden flex items-center justify-center h-dvh">
+
+  <div class="bg-gray-800 shadow-lg h-full py-5 w-full flex flex-col sm:rounded-3xl px-4 justify-between items-center">
+    <div class="relative bg-gray-600/50 border border-gray-400 h-14 w-full flex rounded-full shadow-lg items-center justify-between">
+      <input id="city" class="outline-none text-white bg-transparent h-full w-full pl-2 rounded-full" type="text" placeholder="Enter city">
+      <i id="btn" class="ri-search-line w-12 h-11 text-2xl flex justify-center cursor-pointer text-white mr-2 hover:bg-white/20 transition-all duration-300  rounded-full items-center"></i>
+    </div>
+
+     <h1 id="displyCity"  class="text-3xl text-white">casablanca</h1>
+     <p id="tempirature" class="text-8xl text-white">55c</p>
+    <div class="w-full flex items-center justify-between">
+      <div>
+        <h1 class="text-white">Humidity</h1>
+        <p class="font-thin text-white" id="Humidity">201</p>
+      </div>
+      <div>
+          <h1 class="text-white">Wind Speed</h1>
+        <p class="font-thin text-white" id="wind-speed">541</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="msg" class="absolute -bottom-10 transition-all duration-300 ease-in z-10 bg-black/40 px-3 py-2 rounded-md text-white">
+    <p>fill the input to search for weather !!</p>
+  </div>
+  
+
+  
+   
+
+    <script src="scripts/app.js"></script>
+</body>
+</html>
