@@ -1,28 +1,18 @@
-const CACHE_NAME = "weather-app-cache-v1";
-const urlsToCache = [
-  "/",
-  "/index.html",
-  "/scripts/app.js",
-  "/styles.css",
-  "/icons/icon-192.png",
-  "/icons/icon-512.png"
-];
-
-// Install SW and cache assets
-self.addEventListener("install", event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
+self.addEventListener('install', (e) => {
+  e.waitUntil(
+    caches.open('weather-app-cache').then((cache) => {
+      return cache.addAll([
+        './',
+        './index.html',
+        './scripts/app.js', 
+        './icons/icon-512.png'
+      ]);
+    })
   );
 });
 
-// Activate SW
-self.addEventListener("activate", event => {
-  console.log("Service Worker activated");
-});
-
-// Fetch requests
-self.addEventListener("fetch", event => {
-  event.respondWith(
-    caches.match(event.request).then(response => response || fetch(event.request))
+self.addEventListener('fetch', (e) => {
+  e.respondWith(
+    caches.match(e.request).then((response) => response || fetch(e.request))
   );
 });
