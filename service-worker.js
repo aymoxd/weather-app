@@ -1,6 +1,6 @@
 self.addEventListener('install', (e) => {
   e.waitUntil(
-    caches.open('weather-app-cache').then((cache) => {
+    caches.open('weather-app-cache-v2').then((cache) => {
       return cache.addAll([
         './',
         './index.html',
