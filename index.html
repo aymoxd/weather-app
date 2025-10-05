@@ -15,9 +15,21 @@
      <meta name="theme-color" content="#0f172a">
 <title>Weather App</title>
 </head>
-<body class="bg-gray-950 overflow-hidden sm:py-4 flex items-center justify-center h-dvh">
+<body class="bg-gradient-to-tr from-gray-900 via-gray-600 to-orange-600 overflow-hidden sm:py-4 flex items-center justify-center h-dvh">
 
-  <div class="bg-gray-800 shadow-2xl h-full py-5 w-full sm:w-96 sm:rounded-3xl flex flex-col  px-4 justify-between items-center">
+  <div class=" relative overflow-hidden bg-black/50 shadow-2xl h-full py-14 w-full sm:w-96 sm:rounded-3xl flex flex-col  px-4 justify-between items-center">
+
+
+    <i id="open" class="ri-menu-line text-white text-3xl active:scale-95 transition-all duration-300 cursor-pointer absolute right-5 top-5"></i>
+          <div id="asideBar" class="bg-gray-700 absolute h-full w-52 z-50 -right-80 top-0 flex flex-col transition-all duration-500 ease-out space-y-8 text">
+    <i id="close" class="ri-close-large-line text-right mr-5 mt-5 text-2xl text-white active:scale-95 transition-all duration-300 cursor-pointer "></i>
+                  <a href="#" class="text-white mx-5 h-14 flex items-center justify-start px-3 rounded-md active:scale-95 transition-all border border-gray-500 duration-300  hover:bg-white/50">Mad w Jazer</a>
+                  <a href="https://www.instagram.com/aymoxd?igsh=NTg5dTE4emZoOWdp" class="text-white mx-5 h-14 flex items-center justify-start px-3 rounded-md active:scale-95 transition-all border border-gray-500 duration-300  hover:bg-white/50"><i class="ri-instagram-line mr-2"></i>instagram</a>
+                  <a href="https://www.facebook.com/share/19naf3fKwN/?mibextid=wwXIfr" class="text-white mx-5 h-14 flex items-center justify-start px-3 rounded-md active:scale-95 transition-all border border-gray-500 duration-300  hover:bg-white/50"><i class="ri-facebook-circle-fill mr-2"></i>facebook</a>
+                  <p class="text-gray-500 mx-5  flex items-center justify-start px-3 rounded-md active:scale-95 transition-all border border-gray-500 duration-300 ">other option comming soon "sebro adrari chwiya"</p>
+        </div>
+
+
     <div class="relative bg-gray-600/50 border border-gray-400 h-14 w-full flex rounded-full shadow-lg items-center justify-between">
       <input id="city" class="outline-none text-white bg-transparent h-full w-full pl-5 rounded-full" type="text" placeholder="Enter city">
       <i id="btn" class="ri-search-line w-12 h-11 text-2xl flex justify-center cursor-pointer text-white mr-2 hover:bg-white/20 transition-all duration-300  rounded-full items-center"></i>
@@ -38,6 +50,13 @@
       </div>
     </div>
   </div>
+
+<!--
+    <div id="madwajazer" class="relative overflow-hidden bg-gray-800 shadow-2xl h-full py-14 w-full sm:w-96 sm:rounded-3xl flex flex-col  px-4 justify-between items-center">
+      
+
+  </div>
+  -->
 
   
 

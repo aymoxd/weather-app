@@ -6,6 +6,18 @@ const Humidity = document.getElementById('Humidity');
 const windSpeed = document.getElementById('wind-speed');
 const message = document.getElementById('msg');
 const error = document.getElementById('error');
+const open = document.getElementById('open');
+const close = document.getElementById('close');
+const asideBar = document.getElementById('asideBar');
+
+open.addEventListener('click',()=>{
+     asideBar.classList.remove('-right-80');
+     asideBar.classList.add('right-0');
+});
+close.addEventListener('click',()=>{
+     asideBar.classList.remove('right-0');
+     asideBar.classList.add('-right-80');
+});
 
 
 
@@ -21,6 +33,7 @@ async function checkWeather(cityName) {
         msg();
     } else{ 
     console.log(data);
+
     displyCity.innerHTML = data.name;
     tempirature.innerHTML = Math.round(data.main.temp) + "°C";
     windSpeed.innerHTML = Math.round(data.wind.speed) + 'Km';
@@ -46,8 +59,24 @@ btn.addEventListener('click',()=>{
         }
  } );
 
+city.addEventListener('keydown',(e)=>{
+    if(e.key == "Enter"){
+        if(city.value == ''){
+               msg();
+        }else{
+            checkWeather(city.value);
+        }
+    }
+});
+
+
+
+
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('service-worker.js')
-    .then(() => console.log('Service Worker Registered'))
+    .then(registration => {
+      console.log('Service Worker Registered');
+      registration.update(); // force update if needed
+    })
     .catch(err => console.error('SW registration failed:', err));
 }
