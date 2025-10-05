@@ -116,7 +116,7 @@ city.addEventListener('keydown',(e)=>{
     }
 });
 
-
+/*
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('service-worker.js')
     .then(registration => {
@@ -125,3 +125,4 @@ if ('serviceWorker' in navigator) {
     })
     .catch(err => console.error('SW registration failed:', err));
 }
+*/
