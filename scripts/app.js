@@ -9,14 +9,23 @@ const error = document.getElementById('error');
 const open = document.getElementById('open');
 const close = document.getElementById('close');
 const asideBar = document.getElementById('asideBar');
+const overly = document.getElementById('overly');
+
 
 open.addEventListener('click',()=>{
      asideBar.classList.remove('-right-80');
      asideBar.classList.add('right-0');
+     overly.classList.remove('hidden');
 });
 close.addEventListener('click',()=>{
      asideBar.classList.remove('right-0');
      asideBar.classList.add('-right-80');
+     overly.classList.add('hidden');
+});
+overly.addEventListener('click',()=>{
+     asideBar.classList.remove('right-0');
+     asideBar.classList.add('-right-80');
+     overly.classList.add('hidden');
 });
 
 
@@ -34,11 +43,21 @@ async function checkWeather(cityName) {
     } else{ 
     console.log(data);
 
-    displyCity.innerHTML = data.name;
+    const elements = [displyCity,tempirature,Humidity,windSpeed];
+        elements.forEach(el => el.classList.add('animate-fadeOut'));
+
+        setTimeout(()=>{
+            displyCity.innerHTML = data.name;
     tempirature.innerHTML = Math.round(data.main.temp) + "°C";
     windSpeed.innerHTML = Math.round(data.wind.speed) + 'Km';
     Humidity.innerHTML = Math.round(data.main.humidity) + '%';
-    }
+        
+      elements.forEach(el => {
+        el.classList.remove('animate-fadeOut');
+        el.classList.add('animate-fadeIn');
+      });
+        },400);
+   }
 }
 
 function msg(){
@@ -68,8 +87,6 @@ city.addEventListener('keydown',(e)=>{
         }
     }
 });
-
-
 
 
 if ('serviceWorker' in navigator) {
