@@ -10,6 +10,28 @@ const open = document.getElementById('open');
 const close = document.getElementById('close');
 const asideBar = document.getElementById('asideBar');
 const overly = document.getElementById('overly');
+const madwajazer = document.getElementById('madwajazer');
+const weatherCart = document.getElementById('weatherCart');
+const madwajazerBtn = document.getElementById('madwajazerBtn');
+const weatherCartBtn = document.getElementById('weatherCartBtn');
+
+
+madwajazerBtn.addEventListener('click',()=>{
+    weatherCart.classList.remove('flex');
+    weatherCart.classList.add('hidden');
+    madwajazer.classList.remove('hidden');
+    madwajazer.classList.add('flex');
+     asideBar.classList.remove('right-0');
+     asideBar.classList.add('-right-80');
+});
+weatherCartBtn.addEventListener('click',()=>{
+    madwajazer.classList.remove('flex');
+    madwajazer.classList.add('hidden');
+    weatherCart.classList.remove('hidden');
+    weatherCart.classList.add('flex');
+    overly.classList.add('hidden')
+});
+
 
 
 open.addEventListener('click',()=>{
@@ -89,6 +111,7 @@ city.addEventListener('keydown',(e)=>{
 });
 
 
+
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('service-worker.js')
     .then(registration => {
@@ -97,4 +120,3 @@ if ('serviceWorker' in navigator) {
     })
     .catch(err => console.error('SW registration failed:', err));
 }
-
