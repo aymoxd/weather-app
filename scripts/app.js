@@ -97,3 +97,4 @@ if ('serviceWorker' in navigator) {
     })
     .catch(err => console.error('SW registration failed:', err));
 }
+
